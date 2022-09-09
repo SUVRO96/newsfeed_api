@@ -6,6 +6,7 @@ const cors = require("cors");
 const userRoute = require("./Routes/users");
 const feeditemsRoute = require("./Routes/feedItems");
 const commentsRoute = require("./Routes/comments");
+const likesRoute = require("./Routes/likes");
 
 app.use(express.json());
 app.use(cors());
@@ -22,6 +23,8 @@ app.get("/", (req, res) => {
 app.use("/users", userRoute);
 app.use("/feeditems", feeditemsRoute);
 app.use("/comments", commentsRoute);
+app.use("/likes", likesRoute);
+
 mongoose.connect(
   "mongodb+srv://Suvro96:Suvro_96@cluster0.uq4uv.mongodb.net/newsfeed?retryWrites=true&w=majority",
   () => {
