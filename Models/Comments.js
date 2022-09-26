@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const commentSchema = mongoose.Schema({
   commentid: {
     type: String,
+    required: true,
     unique: true,
   },
   feedid: {

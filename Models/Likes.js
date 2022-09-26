@@ -1,11 +1,21 @@
 const mongoose = require("mongoose");
 
 const likeSchema = new mongoose.Schema({
+  likeid: {
+    type: String,
+    required: true,
+    unique: true,
+    index: true,
+  },
   feedid: {
     type: String,
     required: true,
   },
-  likedby: {
+  name: {
+    type: String,
+    required: true,
+  },
+  userid: {
     type: String,
     required: true,
   },
