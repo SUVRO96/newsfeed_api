@@ -30,7 +30,7 @@ router.get("/allitems", async (req, res) => {
   }
 });
 
-//localhost:4000/feeditems/edititem/:id
+//http://localhost:4000/feeditems/edititem/:id
 http: router.put("/edititem/:id", async (req, res) => {
   try {
     const tempId = req.params.id;
