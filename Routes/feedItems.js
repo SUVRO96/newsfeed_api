@@ -30,4 +30,28 @@ router.get("/allitems", async (req, res) => {
   }
 });
 
+//localhost:4000/feeditems/edititem/:id
+http: router.put("/edititem/:id", async (req, res) => {
+  try {
+    const tempId = req.params.id;
+    const tempItem = {
+      id: req.body.id,
+      name: req.body.name,
+      userid: req.body.userid,
+      itemText: req.body.itemText,
+      itemImage: req.body.itemImage,
+    };
+    const savedItem = await Feeditem.findOneAndUpdate(
+      { id: tempId },
+      tempItem,
+      {
+        new: true,
+      }
+    );
+    res.status(201).json(savedItem);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 module.exports = router;
